@@ -1,7 +1,7 @@
 // Define control pins
 const int In1 = 7; // IN1 on motor driver
 const int In2 = 8; // IN2 on motor driver
-const int ENA = 9; // ENA on motor driver (PWM speed control)
+const int ENa = 9; // ENA on motor driver (PWM speed control)
 
 void setup() {
   // Set all motor control pins as outputs
