@@ -7,14 +7,14 @@ void setup() {
   // Set all motor control pins as outputs
   pinMode(In1, OUTPUT);
   pinMode(In2, OUTPUT);
-  pinMode(ENA, OUTPUT);
+  pinMode(ENa, OUTPUT);
 }
 
 void loop() {
   // --- Rotate Forward for 2 seconds ---
   digitalWrite(In1, HIGH);
   digitalWrite(In2, LOW);
-  analogWrite(ENA, 255); // Set speed (0 - 255)
+  analogWrite(ENa, 255); // Set speed (0 - 255)
   delay(2000);
 
   // --- Stop for 1 second ---
