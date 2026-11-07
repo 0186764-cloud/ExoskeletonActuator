@@ -1,21 +1,35 @@
-const int In1 = 9;
-const int In2 = 8;
+// Define control pins
+const int In1 = 7; // IN1 on motor driver
+const int In2 = 8; // IN2 on motor driver
+const int ENA = 9; // ENA on motor driver (PWM speed control)
 
-void setup(){
+void setup() {
+  // Set all motor control pins as outputs
   pinMode(In1, OUTPUT);
-  pinMode(in2, OUTPUT);
-
-  Serial.begin(9600);
+  pinMode(In2, OUTPUT);
+  pinMode(ENA, OUTPUT);
 }
-void Rotate(){
+
+void loop() {
+  // --- Rotate Forward for 2 seconds ---
   digitalWrite(In1, HIGH);
   digitalWrite(In2, LOW);
-
+  analogWrite(ENA, 255); // Set speed (0 - 255)
   delay(2000);
+
+  // --- Stop for 1 second ---
   digitalWrite(In1, LOW);
   digitalWrite(In2, LOW);
-}
-void loop(){
-  Rotate();
+  delay(1000);
+
+  // --- Rotate Backward for 2 seconds ---
+  digitalWrite(In1, LOW);
+  digitalWrite(In2, HIGH);
+  analogWrite(ENA, 255); // Set speed (0 - 255)
+  delay(2000);
+
+  // --- Stop for 1 second ---
+  digitalWrite(In1, LOW);
+  digitalWrite(In2, LOW);
   delay(1000);
 }
